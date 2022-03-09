@@ -1,6 +1,8 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+from dash.dependencies import Input, Output, State
+
 import plotly.graph_objs as go
 import pandas as pd
 
@@ -16,9 +18,9 @@ myheading1 = f"Wow! That is a lot of {mycolumn}!"
 mygraphtitle = '2011 US Agriculture Exports by State'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
 mycolorbartitle = "Millions USD"
-tabtitle = 'Old McDonald'
+tabtitle = 'Old McDonald+'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
-githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
+githublink = 'https://https://github.com/KconnorsSD/agriculture-exports-map'
 
 
 ########## Set up the chart
