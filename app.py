@@ -9,7 +9,7 @@ import pandas as pd
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
-list_of_columns =['Code' , 'State', 'Total Exports', 'Beef', 'Tree Nuts', 'Soybeans',
+list_of_columns =['Total Exports', 'Beef', 'Tree Nuts', 'Soybeans',
        'Tobacco', 'Fresh Fruit']
 
 mycolumn='Fresh Fruit'
