@@ -1,6 +1,7 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+# import dash_core_components as dcc
+# import dash_html_components as html
+from dash import dcc,html
 from dash.dependencies import Input, Output, State
 
 import plotly.graph_objs as go
@@ -28,7 +29,7 @@ import pandas as pd
 df = pd.read_csv('assets/2019_commodity_by_state.csv')
 
 fig = go.Figure(data=go.Choropleth(
-    locations=df['code'], # Spatial coordinates
+    locations=df['Code'], # Spatial coordinates
     z = df[mycolumn].astype(float), # Data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
     colorscale = mycolorscale,
@@ -80,7 +81,7 @@ def make_figure(varname):
     mycolorbartitle = "Millions USD"
 
     data=go.Choropleth(
-        locations=df['code'], # Spatial coordinates
+        locations=df['Code'], # Spatial coordinates
         locationmode = 'USA-states', # set of locations match entries in `locations`
         z = df[varname].astype(float), # Data to be color-coded
         colorscale = mycolorscale,
