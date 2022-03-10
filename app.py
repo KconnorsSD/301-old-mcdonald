@@ -9,11 +9,10 @@ import pandas as pd
 ########### Define your variables ######
 
 # here's the list of possible columns to choose from.
-list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 'poultry',
-       'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
-       'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
+list_of_columns =['Code' , 'State', 'Total Exports', 'Beef', 'Tree Nuts', 'Soybeans',
+       'Tobacco', 'Fresh Fruit']
 
-mycolumn='corn'
+mycolumn='Fresh Fruit'
 myheading1 = f"Wow! That is a lot of {mycolumn}!"
 mygraphtitle = '2011 US Agriculture Exports by State'
 mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
@@ -26,7 +25,7 @@ githublink = 'https://github.com/KconnorsSD/agriculture-exports-map'
 ########## Set up the chart
 
 import pandas as pd
-df = pd.read_csv('assets/usa-2011-agriculture.csv')
+df = pd.read_csv('assets/2019_commodity_by_state.csv')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['code'], # Spatial coordinates
@@ -52,14 +51,14 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1('2011 Agricultural Exports, by State'),
+    html.H1('2019 Specific Agricultural Exports, by State'),
     html.Div([
         html.Div([
                 html.H6('Select a variable for analysis:'),
                 dcc.Dropdown(
                     id='options-drop',
                     options=[{'label': i, 'value': i} for i in list_of_columns],
-                    value='corn'
+                    value='Total Exports'
                 ),
         ], className='two columns'),
         html.Div([dcc.Graph(id='figure-1'),
@@ -76,7 +75,7 @@ app.layout = html.Div(children=[
 @app.callback(Output('figure-1', 'figure'),
              [Input('options-drop', 'value')])
 def make_figure(varname):
-    mygraphtitle = f'Exports of {varname} in 2011'
+    mygraphtitle = f'Exports of {varname} in 2019'
     mycolorscale = 'ylorrd' # Note: The error message will list possible color scales.
     mycolorbartitle = "Millions USD"
 
